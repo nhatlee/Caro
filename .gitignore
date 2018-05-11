@@ -1,0 +1,8 @@
+**/*.db
+*.??#
+*.~?~
+*~
+*.swp
+.#*
+.DS_Store
+gomoku.xcodeproj/project.xcworkspace/xcuserdata/*

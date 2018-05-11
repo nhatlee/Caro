@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="g8Y-Kp-1V0">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gomoku View Controller-->
+        <scene sceneID="O9Y-KR-pAt">
+            <objects>
+                <viewController storyboardIdentifier="GomokuViewController" id="g8Y-Kp-1V0" customClass="GomokuViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0KJ-s3-xvD"/>
+                        <viewControllerLayoutGuide type="bottom" id="4HE-l5-sft"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="e5U-nG-74X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleAspectFill" image="SplashScreen" translatesAutoresizingMaskIntoConstraints="NO" id="ZFi-f1-YJy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="0.58836959529999999" blue="0.023988376490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzv-0V-s4C">
+                                <rect key="frame" x="147.5" y="358" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Rii-OH-UZ4"/>
+                                    <constraint firstAttribute="height" constant="44" id="yxM-h9-u0q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                <state key="normal" title="Play!">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="selected" backgroundImage="Default.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startTwoPlayerGame:" destination="g8Y-Kp-1V0" eventType="touchUpInside" id="Oa8-gQ-Rt5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdJ-vt-ATB">
+                                <rect key="frame" x="146" y="112" width="29" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjV-Gg-kc0">
+                                <rect key="frame" x="60" y="112" width="255" height="216"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="g8Y-Kp-1V0" id="6Uq-El-D5v"/>
+                                    <outlet property="delegate" destination="g8Y-Kp-1V0" id="Skz-UX-bRt"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Caro" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="oyT-ms-xGA">
+                                <rect key="frame" x="127" y="0.0" width="121.5" height="107"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="66"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Nzv-0V-s4C" firstAttribute="centerX" secondItem="e5U-nG-74X" secondAttribute="centerX" id="0fi-7u-pbb"/>
+                            <constraint firstItem="oyT-ms-xGA" firstAttribute="centerX" secondItem="e5U-nG-74X" secondAttribute="centerX" id="1w1-77-pP8"/>
+                            <constraint firstItem="ZFi-f1-YJy" firstAttribute="top" secondItem="e5U-nG-74X" secondAttribute="top" id="6Np-uB-pCg"/>
+                            <constraint firstItem="4HE-l5-sft" firstAttribute="top" secondItem="ZFi-f1-YJy" secondAttribute="bottom" id="9Er-2N-Qq6"/>
+                            <constraint firstItem="Nzv-0V-s4C" firstAttribute="top" secondItem="MjV-Gg-kc0" secondAttribute="bottom" constant="30" id="ZuM-nR-fle"/>
+                            <constraint firstItem="oyT-ms-xGA" firstAttribute="top" secondItem="e5U-nG-74X" secondAttribute="top" id="hui-9C-meB"/>
+                            <constraint firstItem="ZFi-f1-YJy" firstAttribute="leading" secondItem="e5U-nG-74X" secondAttribute="leading" id="iuk-VR-aXx"/>
+                            <constraint firstAttribute="trailing" secondItem="ZFi-f1-YJy" secondAttribute="trailing" id="jDQ-Yb-DIa"/>
+                            <constraint firstAttribute="trailing" secondItem="MjV-Gg-kc0" secondAttribute="trailing" constant="60" id="w1s-no-Dg4"/>
+                            <constraint firstItem="MjV-Gg-kc0" firstAttribute="top" secondItem="oyT-ms-xGA" secondAttribute="bottom" constant="5" id="wfN-f2-NgF"/>
+                            <constraint firstItem="MjV-Gg-kc0" firstAttribute="leading" secondItem="e5U-nG-74X" secondAttribute="leading" constant="60" id="x2c-SI-SbE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pickerView" destination="MjV-Gg-kc0" id="kSq-fw-Yfi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mes-up-4l3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="106" y="116"/>
+        </scene>
+        <!--Game Board View Controller-->
+        <scene sceneID="PJd-vy-gAy">
+            <objects>
+                <viewController storyboardIdentifier="GameBoardViewController" id="v3m-uE-dlk" customClass="GameBoardViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6k6-DQ-lJg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yxb-rl-c9O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eIf-pT-Aib">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Game Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdf-Qx-BlR">
+                                <rect key="frame" x="20" y="30" width="335" height="49"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" text="pinch zoom to scale, or move board with two fingers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="pto-8u-QpN">
+                                <rect key="frame" x="20" y="90" width="335" height="22"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="13"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" bounces="NO" minimumZoomScale="0.0" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRc-Jy-IDf">
+                                <rect key="frame" x="0.0" y="132" width="375" height="535"/>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="kdf-Qx-BlR" firstAttribute="top" secondItem="6k6-DQ-lJg" secondAttribute="bottom" constant="10" id="6PZ-dq-IEN"/>
+                            <constraint firstAttribute="trailing" secondItem="pto-8u-QpN" secondAttribute="trailing" constant="20" id="7YG-po-5BV"/>
+                            <constraint firstItem="kdf-Qx-BlR" firstAttribute="leading" secondItem="eIf-pT-Aib" secondAttribute="leading" constant="20" id="HtT-kI-AoP"/>
+                            <constraint firstAttribute="trailing" secondItem="kdf-Qx-BlR" secondAttribute="trailing" constant="20" id="KfZ-3M-jIX"/>
+                            <constraint firstItem="pto-8u-QpN" firstAttribute="top" secondItem="kdf-Qx-BlR" secondAttribute="bottom" constant="11" id="Ls1-HC-yYt"/>
+                            <constraint firstItem="pto-8u-QpN" firstAttribute="leading" secondItem="eIf-pT-Aib" secondAttribute="leading" constant="20" id="OE1-oF-jxn"/>
+                            <constraint firstAttribute="trailing" secondItem="XRc-Jy-IDf" secondAttribute="trailing" id="b3G-1W-jty"/>
+                            <constraint firstItem="XRc-Jy-IDf" firstAttribute="top" secondItem="pto-8u-QpN" secondAttribute="bottom" constant="20" id="eAI-tl-X8l"/>
+                            <constraint firstItem="Yxb-rl-c9O" firstAttribute="top" secondItem="XRc-Jy-IDf" secondAttribute="bottom" id="hj1-hk-HhU"/>
+                            <constraint firstItem="XRc-Jy-IDf" firstAttribute="leading" secondItem="eIf-pT-Aib" secondAttribute="leading" id="ne2-wC-BSe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="boardScrollView" destination="XRc-Jy-IDf" id="zUA-xJ-J5N"/>
+                        <outlet property="gameStatus" destination="kdf-Qx-BlR" id="mXw-og-ZQG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="znw-QH-8zO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="340" y="738.98050974512751"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Default.png" width="57" height="57"/>
+        <image name="SplashScreen" width="16" height="16"/>
+    </resources>
+</document>
